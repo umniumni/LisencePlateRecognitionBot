@@ -28,7 +28,7 @@
     
     // Install all Python dependencies after creating the container
     // Make sure the requirements.txt file is in the project root.
-    "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt && pip install torch==2.0.1 torchvision==0.15.2",
+    "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt",
     "remoteUser": "vscode"
 }
 
