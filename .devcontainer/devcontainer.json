@@ -1,0 +1,35 @@
+{
+    "name": "License Plate Recognition Environment 🚗",
+    
+    // Reference the Dockerfile in the root folder (..)
+    "build": {
+        "dockerfile": "../Dockerfile",
+        "context": ".."
+    },
+    
+    "customizations": {
+        "vscode": {
+            "settings": {
+                // Specify the default path to the interpreter
+                "python.defaultInterpreterPath": "/usr/local/bin/python", 
+                "editor.formatOnSave": true,
+                "python.linting.enabled": true,
+                "python.linting.ruffEnabled": true,
+                "python.formatting.provider": "ruff"
+            },
+            "extensions": [
+                "ms-python.python", 
+                "ms-python.vscode-pylance",
+                "charliermarsh.ruff",
+                "streetsidesoftware.code-spell-checker"
+            ]
+        }
+    },
+    
+    // Install all Python dependencies after creating the container
+    // Make sure the requirements.txt file is in the project root.
+    "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt && pip install torch==2.0.1 torchvision==0.15.2",
+    "remoteUser": "vscode"
+}
+
+
